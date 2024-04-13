@@ -14,7 +14,7 @@ connectDB()
   // as the connectDB() returns a promise we can use .then() and .catch() to handle the promise
   .then(() => {
     //listening to [PORT]
-    app.listen(process.env.PORT || 8000, () => {
+    app.listen(process.env.PORT || 5000, () => {
       console.log(`Server is running on PORT : ${process.env.PORT}`);
     });
   })

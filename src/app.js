@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import userRouter from "./routes/user.routes.js";
 
 const app = express();
 
@@ -22,6 +23,13 @@ app.use(express.urlencoded({ extended: true }));
 // This line tells Express.js to serve static files (like HTML, CSS, and JavaScript files) from the "public" directory. This means that if you have a file at public/index.html, it can be accessed on your website at yourwebsite.com/index.html. This is useful for serving your static assets like images, scripts, and stylesheets.
 app.use(express.static("public"));
 
-app.use(cookieParser()); 
+app.use(cookieParser());
+
+// import routes
+
+// routes declaration(have to use middleware because we are using routes in our app)
+app.use("/api/v1/users", userRouter);
+
+// http://localhost:8000/api/v1/users/register
 
 export default app;
