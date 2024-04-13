@@ -1,10 +1,22 @@
 import { Router } from "express";
 import { registerUser } from "../controllers/user.controller.js";
-
+import {upload} from "../middlewares/multer.middleware.js"
 // Creating an instance of the express router
 const router = Router();
 
-// Defining the route for the registerUser controller(jaise hi app se route call hoga to control iske pass ayyega aur yeh function run hoga if the route is /register)
-router.route("/register").post(registerUser);
+router.route("/register").post(
+  // using middleware , which acts as before passing the request to the controller , check for the upload fields
+  upload.fields([
+    {
+      name:"avatar",
+      maxCount:1
+    },
+    {
+      name:"coverImage",
+      maxCount:1
+    }
+  ]),
+  registerUser
+)
 
-export default router;
+export default router; 

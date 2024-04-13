@@ -14,7 +14,9 @@ app.use(
   })
 );
 
-// the amount of data that can be sent in a request body is limited by default in Express.js. This line increases the limit to 50mb, which is useful when you want to send large files or images from the client to the server. (useful via POST requests)
+app.use("/api/v1/users", userRouter);
+
+
 app.use(express.json({ limit: "50mb" }));
 
 // This line is middleware in Express.js that parses incoming requests with URL-encoded payloads. The extended: true option allows for the parsing of complex objects and arrays. This is useful when you want to send data from the client to the server via POST requests, for example from an HTML form.
@@ -25,10 +27,6 @@ app.use(express.static("public"));
 
 app.use(cookieParser());
 
-// import routes
-
-// routes declaration(have to use middleware because we are using routes in our app)
-app.use("/api/v1/users", userRouter);
 
 // http://localhost:8000/api/v1/users/register
 

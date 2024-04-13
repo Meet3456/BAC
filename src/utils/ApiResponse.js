@@ -1,4 +1,4 @@
-// write a cusstom class code for handling api response
+// write a cusstom class code for handling successful api response
 
 class ApiResponse {
   constructor(statusCode, data, message = "Success"){

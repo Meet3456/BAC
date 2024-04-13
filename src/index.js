@@ -6,7 +6,7 @@ const app = express();
 
 // dotenv can be configured to read from a file , we cant use import for this , it requires require statement(commonJS)
 dotenv.config({
-  path: "./env",
+  path: "./.env",
 });
 
 connectDB()
